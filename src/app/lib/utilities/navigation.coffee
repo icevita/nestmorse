@@ -21,39 +21,9 @@
     startHistory: ->
       Backbone.history.start() if Backbone.history
 
-    authUser: ->
-        nestToken = Cookies.get('nest_token')
-        App.thermostat = {}
-        App.structure = {}
-
-        if nestToken
-        # Simple check for token
-        # Create a reference to the API using the provided token
-          App.dataRef = new Firebase('ws://developer-api.nest.com')
-          App.dataRef.authWithCustomToken nestToken
-        # in a production client we would want to
-        # handle auth errors here.
-        else
-        # No auth token, go get one
-          window.location.replace App.BACKEND_URL + '/auth/nest'
-
-        # updating thermostat data
-        App.dataRef.on 'value', (snapshot) ->
-          data = snapshot.val()
-          # For simplicity, we only care about the first
-          # thermostat in the first structure
-          App.structure = data.structures[Object.keys(data.structures)[0]]
-          App.thermostat = data.devices.thermostats[App.structure.thermostats[0]]
-          # TAH-361, device_id does not match the device's path ID
-          App.thermostat.device_id = App.structure.thermostats[0]
-          App.request("nest:initialized")
-
   if App.autoInitHistory
     App.on "start", ->
-      # TODO: move to global config
-      App.BACKEND_URL = 'http://localhost:8080'
-
-      @authUser()
+      App.request("nest:auth")
 
       # Starts the Backbone History
       @startHistory()

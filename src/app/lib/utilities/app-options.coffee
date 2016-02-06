@@ -8,6 +8,7 @@
   App.on "before:start", (options = {}) ->
     _.defaults options,
       environment: "production"
+      backend: "http://localhost:8080"
 
     App.options = options
 
