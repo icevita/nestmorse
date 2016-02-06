@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, Verdana, sans-serif;
+  color: $dark-gray;
+}
+
+a {
+  color: $gray;
+
+  &:hover {
+    color: $darkest-gray;;
+  }
+}
+
+#wrapper {
+  margin: 1em auto;
+}
+
+#header {
+  text-align: center;
+  background-image: url('images/logo.jpg');
+  height:255px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .header-text-block {
+    color: white;
+    padding-left: 3em;
+    padding-top: 10em;
+    text-align: left;
+  }
+}
+
+.copyright,
+#content {
+  margin: 2em auto;
+}
+
+.copyright {
+  color: #light-gray;
+  font-size: 0.75em;
+  text-align: right;
+  width: 100%;
+  bottom: 0;
+}

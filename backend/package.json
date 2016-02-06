@@ -1,0 +1,19 @@
+{
+  "name": "morse-backend",
+  "version": "1.0.0",
+  "description": "Morse backend",
+  "main": "morse.js",
+  "scripts": {
+    "start": "node morse.js"
+  },
+  "author": "Mykola Sedletskyi",
+  "dependencies": {
+    "body-parser": "latest",
+    "cookie-parser": "latest",
+    "express": "latest",
+    "express-session": "latest",
+    "passport": "latest",
+    "passport-nest": "latest",
+    "dotenv": "latest"
+  }
+}
