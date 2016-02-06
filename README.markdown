@@ -1,9 +1,7 @@
-app just for fan 
-
-Text too morse via nest termostat
+`Text too morse` via nest termostat
 
 Installation
-# ruby and sass should be installed
+ruby and sass should be installed
 
 npm install
 bower install
